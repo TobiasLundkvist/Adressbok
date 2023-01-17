@@ -15,7 +15,7 @@ internal class MenuManager
     {
         file.FilePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
 
-        TestLista();
+        ReadList();
 
         Console.WriteLine(" \nVälkommen till Adressboken \n");
         Console.WriteLine("1. Skapa en kontakt");
@@ -47,7 +47,7 @@ internal class MenuManager
 
     }
 
-    private void TestLista()
+    private void ReadList()
     {
         try
         {
@@ -96,12 +96,12 @@ internal class MenuManager
                 Console.WriteLine($"Förnamn: {contact.FirstName}");
                 Console.WriteLine($"Efternamn: {contact.LastName}");
                 Console.WriteLine($"E-postadress: {contact.Email} \n");
+                Console.WriteLine("------------------------------------------------------------------------------------");
             }
             else 
             {
-                Console.WriteLine("Finns inga kontakter");
+                Console.WriteLine("Kontakten finns inte");
             }
-
         }
         Console.ReadKey();
     }
@@ -109,24 +109,24 @@ internal class MenuManager
     private void ShowOneContact()
     {
         Console.Clear();
-
         Console.WriteLine("Sök efter förnamn: ");
         var FirstNameSearch = Console.ReadLine();
 
-        foreach(Contact contact in contacts)
-        {
-            if (FirstNameSearch == contact.FirstName)
-            {
-                Console.WriteLine($"Förnamn: {contact.FirstName}");
-                Console.WriteLine($"Efternamn: {contact.LastName}");
-                Console.WriteLine($"E-postadress: {contact.Email}");
-                Console.WriteLine($"Telefonnummer: {contact.PhoneNumber}");
-                Console.WriteLine($"Adress: {contact.Address}, {contact.PostalCode} {contact.City}");
 
-                Console.ReadKey();
-            }
-            else
-                Console.WriteLine("Finns ingen kontakt med det förnamnet");
+        Contact FoundContact = contacts.Where(x => x.FirstName == FirstNameSearch).FirstOrDefault();
+        if(FoundContact != null)
+        {
+            Console.WriteLine($"Förnamn: {FoundContact.FirstName}");
+            Console.WriteLine($"Efternamn: {FoundContact.LastName}");
+            Console.WriteLine($"E-postadress: {FoundContact.Email}");
+            Console.WriteLine($"Telefonnummer: {FoundContact.PhoneNumber}");
+            Console.WriteLine($"Adress: {FoundContact.Address}, {FoundContact.PostalCode} {FoundContact.City}");
+            Console.ReadKey();
+        }
+        else
+        {
+            Console.WriteLine("Kontakten finns inte");
+            Console.ReadKey();
         }
     }
 
@@ -136,75 +136,75 @@ internal class MenuManager
         Console.WriteLine("Skriv förnamnet på kontakten du vill ta bort: ");
         var FirstNameSearchAndDelete = Console.ReadLine();
 
-        for(int i = 0; i < contacts.Count; i++)
-        {
-            if(contacts[i].FirstName == FirstNameSearchAndDelete)
-            {
-                Console.WriteLine($"Vill du ta bort {FirstNameSearchAndDelete} från adressboken(Y/N)?");
-                var answer = Console.ReadLine();
-                switch(answer.ToLower())
-                {
-                    case "y":
-                        contacts.RemoveAll(v => v.FirstName == FirstNameSearchAndDelete);
-                        Console.WriteLine($"{FirstNameSearchAndDelete} är borttagen");
-                        break;
-                    case "n":
-                        Console.WriteLine("Kontakten kvarstår i adressboken");
-                        break; 
-                    default: 
-                        Console.WriteLine("Något gick fel");
-                        break;
-                };
+        Console.WriteLine("Skriv efternamnet på kontakten du vill ta bort: ");
+        var LastNameSearchAndDelete = Console.ReadLine();
 
-            }
-            else if(contacts[i].FirstName != FirstNameSearchAndDelete)
+
+        List<Contact> FoundContacts = contacts.Where(x => x.FirstName == FirstNameSearchAndDelete && x.LastName == LastNameSearchAndDelete).ToList();
+        
+        foreach(var contact in FoundContacts)
+        {
+            Console.WriteLine($"Är du säker på att du vill ta bort {contact.FirstName} {contact.LastName} från adressboken? (true/false)");
+            string answer = Console.ReadLine();
+            bool confirm = true;
+            if(bool.TryParse(answer, out confirm))
             {
-                Console.WriteLine("Kontakten finns inte");
+                //Baka in detta i en switch för att få y/n?
+                if(confirm)
+                {
+                    contacts.Remove(contact);
+                    Console.WriteLine($"{contact.FirstName} {contact.LastName} har raderats från adressboken");
+                }
+                else
+                {
+                    Console.WriteLine($"{contact.FirstName} {contact.LastName} kvartstår i adressboken");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Felaktigt svar! {contact.FirstName} {contact.LastName} har inte blivit bortagen från adressboken");
             }
         }
+
+
+
+
+/*        bool Exist = false;
+
+        for (int i = 0; i < contacts.Count; i++)
+        {
+            if (contacts[i].FirstName == FirstNameSearchAndDelete)
+            {
+                Exist = true;
+            }
+        }
+
+        if (Exist)
+        {
+            Console.WriteLine($"Vill du ta bort {FirstNameSearchAndDelete} från adressboken(Y/N)?");
+            var answer = Console.ReadLine();
+            switch (answer.ToLower())
+            {
+                case "y":
+                    contacts.RemoveAll(v => v.FirstName == FirstNameSearchAndDelete);
+                    Console.WriteLine($"{FirstNameSearchAndDelete} är borttagen");
+                    break;
+                case "n":
+                    Console.WriteLine("Kontakten kvarstår i adressboken");
+                    break;
+                default:
+                    Console.WriteLine("Något gick fel");
+                    break;
+            };
+
+        }
+        else
+        {
+            Console.WriteLine("Kontakten finns inte");
+        }*/
+
         file.Save(JsonConvert.SerializeObject(contacts));
         Console.ReadKey();
 
-        /*        foreach (Contact contact in contacts)
-                {
-                    if (FirstNameSearchAndDelete == contact.FirstName)
-                    {
-                        Console.WriteLine($"Vill du ta bort {contact.FirstName} {contact.LastName} från adressboken (Y/N)?");
-                        var answer = Console.ReadLine();
-                        if (answer == "y")
-                        {
-                            contacts.Remove(contact);
-                        }
-                        else if (answer == "n")
-                        {
-                            Console.WriteLine("Kontakten kvarstår i Adressboken");
-                        }
-                    }
-
-                }*/
-
-
-        /*        contacts.RemoveAll(v => v.FirstName == FirstNameSearchAndDelete);*/
-
-
-        /*        List<Contact> contactToRemove = new List<Contact>();
-
-                foreach(Contact contact in contacts)
-                {
-                    if(contact.FirstName == FirstNameSearchAndDelete)
-                    {
-                        contactToRemove.Add(contact);
-                        Console.WriteLine(contactToRemove.Count);
-                    }
-
-                }
-
-                foreach(Contact contact in contactToRemove)
-                {
-                    contacts.Remove(contact);
-                }
-                Console.WriteLine(contacts.Count);*/
-
     }
-
 }
