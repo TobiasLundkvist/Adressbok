@@ -4,9 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAdressbok_MVVM.MVVM.Views"
-             mc:Ignorable="d" 
+             xmlns:viewmodels="clr-namespace:WpfAdressbok_MVVM.MVVM.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
+             Background="white"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Lägg till kontakt" />
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50"/>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Enter..." />
+            <TextBox Text="{Binding FirstName}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding LastName}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding Email}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding PhoneNumber}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding Address}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding PostalCode}" Padding="5" Margin="0 5 0 20" />
+            <TextBox Text="{Binding City}" Padding="5" Margin="0 5 0 20" />
+            <Button Command="{Binding AddCommand }" Content="LÄGG TILL KONTAKT" Padding="8" />
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAdressbok_MVVM.MVVM.Views"
              mc:Ignorable="d" 
+             Background="white"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <TextBlock Text="Kontakt Lista" />
-
     </Grid>
 </UserControl>
