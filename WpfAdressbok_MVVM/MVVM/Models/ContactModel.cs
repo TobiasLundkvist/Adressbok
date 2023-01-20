@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAdressbok_MVVM.MVVM.Models
 {
-    public class Contact
+    public class ContactModel
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string FirstName { get; set; } = null!;
