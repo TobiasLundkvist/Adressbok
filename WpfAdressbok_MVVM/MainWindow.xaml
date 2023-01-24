@@ -8,6 +8,7 @@
         xmlns:views="clr-namespace:WpfAdressbok_MVVM.MVVM.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="720" Width="800">
     <Grid>
 

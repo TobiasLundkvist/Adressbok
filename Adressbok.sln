@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adressbok_ConsoleApp", "Adressbok_ConsoleApp\Adressbok_ConsoleApp.csproj", "{2C2E954E-E29E-454E-BDE4-BC786A7AD569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAdressbok_MVVM", "WpfAdressbok_MVVM\WpfAdressbok_MVVM.csproj", "{3BEEA18F-6237-41FE-9034-BBCA32A5852C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAdressbok_MVVM", "WpfAdressbok_MVVM\WpfAdressbok_MVVM.csproj", "{3BEEA18F-6237-41FE-9034-BBCA32A5852C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAdressbook_Tests", "WpfAdressbook_Tests\WpfAdressbook_Tests.csproj", "{CD468182-8B83-4ABF-A271-6114DE25478C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3BEEA18F-6237-41FE-9034-BBCA32A5852C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BEEA18F-6237-41FE-9034-BBCA32A5852C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BEEA18F-6237-41FE-9034-BBCA32A5852C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD468182-8B83-4ABF-A271-6114DE25478C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD468182-8B83-4ABF-A271-6114DE25478C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD468182-8B83-4ABF-A271-6114DE25478C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD468182-8B83-4ABF-A271-6114DE25478C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

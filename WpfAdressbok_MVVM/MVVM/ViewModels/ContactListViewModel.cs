@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using WpfAdressbok_MVVM.Services;
 
 namespace WpfAdressbok_MVVM.MVVM.ViewModels
 {
-    public partial class ContactListViewModel : ObservableObject
+    public partial class ContactListViewModel : ObservableObject 
     {
         private readonly FileService fileService;
 
@@ -30,10 +31,11 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
         private ObservableCollection<ContactModel> contacts;
 
         [RelayCommand]
-        private void Delete()
+        private void Remove()
         {
-            
+
         }
+
 
 
     }

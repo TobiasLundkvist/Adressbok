@@ -15,18 +15,38 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+
         <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Contacts}" >
+        <ListView Grid.Row="1"  x:Name="ContactsView" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Style="{StaticResource contactRow}">
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}" />
-                        <TextBlock Text="{Binding LastName}" />
-                        <Button Command="" Content="TA BORT KONTAKT" HorizontalAlignment="Right"/>
+                    <StackPanel Margin="4">
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding LastName}" FontWeight="Bold" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Email}" FontStyle="Italic"/>
+                            <TextBlock Text=", " />
+                            <TextBlock Text="{Binding PhoneNumber}" FontStyle="Italic"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Address}"/>
+                            <TextBlock Text=", " />
+                            <TextBlock Text="{Binding PostalCode}"/>
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding City}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource navButton}" Content="Edit"/>
+                            <Button Style="{StaticResource navButton}" Content="Remove"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+     
     </Grid>
 </UserControl>

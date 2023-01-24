@@ -21,16 +21,22 @@
                             Background="Transparent"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        
+
 
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        
+
 
 
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="contactRow" TargetType="ListView">
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="BorderThickness" Value="4" />
 
 
     </Style>
