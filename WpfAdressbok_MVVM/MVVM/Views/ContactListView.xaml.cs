@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAdressbok_MVVM.MVVM.Models;
+using WpfAdressbok_MVVM.Services;
 
 namespace WpfAdressbok_MVVM.MVVM.Views
 {
@@ -23,6 +25,19 @@ namespace WpfAdressbok_MVVM.MVVM.Views
         public ContactListView()
         {
             InitializeComponent();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var contact = (ContactModel)button.DataContext;
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var contact = (ContactModel)button.DataContext;
+
         }
     }
 }

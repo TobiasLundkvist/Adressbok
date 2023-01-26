@@ -17,11 +17,13 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--Navigerings Knappar-->
         <StackPanel Grid.Column="0" >
             <Button Command="{Binding GoToAddContactCommand}" Content="&#xf234;" Style="{StaticResource navButton}" />
             <Button Command="{Binding GoToContactListCommand}" Content="&#xf2b9;" Style="{StaticResource navButton}" />
         </StackPanel>
 
+        <!--Navigering-->
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:ContactListViewModel}">
