@@ -45,13 +45,24 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
             {
                 fileService.RemoveFromList(selectedContact);
             }
+            
 
         }
 
         [RelayCommand]
         public void Update()
         {
-            fileService.UpdateList(selectedContact);
+            var item = contacts.Where(x => x.FirstName == selectedContact.FirstName).FirstOrDefault();
+            if(item != null)
+            {
+                item.FirstName = selectedContact.FirstName;
+                item.LastName = selectedContact.LastName;
+                item.Email = selectedContact.Email;
+                item.PhoneNumber = selectedContact.PhoneNumber;
+                item.Address = selectedContact.Address;
+                item.PostalCode = selectedContact.PostalCode;
+                item.City = selectedContact.City;
+            }
             fileService.SaveToFile();
         }
 

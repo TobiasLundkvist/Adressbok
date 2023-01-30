@@ -5,12 +5,14 @@
     <FontFamily x:Key="FontAwesome-Regular">/Assets/Fonts/fa-regular-400.ttf#Font Awesome 6 Pro Regular</FontFamily>
     <FontFamily x:Key="FontAwesome-Solid">/Assets/Fonts/fa-solid-900.ttf#Font Awesome 6 Pro Solid</FontFamily>
 
+    <!--BUTTONS-->
     <Style x:Key="navButton" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}" />
+        <Setter Property="FontSize" Value="20" />
         <Setter Property="Margin" Value="4"/>
-        <Setter Property="Padding" Value="8"/>
+        <Setter Property="Padding" Value="25 20 25 20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -33,11 +35,88 @@
         </Setter>
     </Style>
 
+    <Style x:Key="editButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="35 20 35 20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="editBtn" 
+                            CornerRadius="8" 
+                            Padding="{TemplateBinding Padding}" 
+                            Margin="{TemplateBinding Margin}"
+                            Background="#99ccff"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="deleteButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="35 20 35 20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="deleteBtn" 
+                            CornerRadius="8" 
+                            Padding="{TemplateBinding Padding}" 
+                            Margin="{TemplateBinding Margin}"
+                            Background="#FF7373"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <!--ROWS/BLOCK-->
     <Style x:Key="contactRow" TargetType="ListView">
         <Setter Property="Padding" Value="8"/>
         <Setter Property="BorderBrush" Value="DarkGray"/>
         <Setter Property="BorderThickness" Value="4" />
-
+        <Setter Property="FontSize" Value="15" />
 
     </Style>
+
+
+    <Style x:Key="editRow" TargetType="TextBox">
+        <Setter Property="Padding" Value="4 8 4 8" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="addRow" TargetType="TextBox">
+        <Setter Property="Padding" Value="4 8 4 8" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="addText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Padding" Value="4" />
+    </Style>
+
+
+
 </ResourceDictionary>

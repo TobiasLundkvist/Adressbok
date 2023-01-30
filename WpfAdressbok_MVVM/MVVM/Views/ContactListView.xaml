@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50" />
+        <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="35" FontWeight="SemiBold"  Margin="0 0 0 30" />
 
         <Grid Grid.Row="1" >
 
@@ -49,25 +49,23 @@
                                 <TextBlock Text=" " />
                                 <TextBlock Text="{Binding City}"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btn_Edit" Click="btn_Edit_Click" Style="{StaticResource navButton}" Content="&#xf044;"/>
-                                <Button x:Name="btn_Delete" Click="btn_Delete_Click"  Style="{StaticResource navButton}" Content="&#xf1f8;"/>
-                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
             <StackPanel Grid.Column="1" Margin="10" >
-                <TextBox Text="{Binding SelectedContact.FirstName}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.LastName}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.Email}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.PhoneNumber}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.Address}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.PostalCode}" Margin="4"/>
-                <TextBox Text="{Binding SelectedContact.City}" Margin="4"/>
-                <Button Command="{Binding UpdateCommand}" Content="Edit" Margin="4"/>
-                <Button Command="{Binding RemoveCommand}" Content="Remove" Margin="4"/>
+                <TextBox Text="{Binding SelectedContact.FirstName}" Style="{StaticResource editRow}" />
+                <TextBox Text="{Binding SelectedContact.LastName}" Style="{StaticResource editRow}"/>
+                <TextBox Text="{Binding SelectedContact.Email}" Style="{StaticResource editRow}"/>
+                <TextBox Text="{Binding SelectedContact.PhoneNumber}" Style="{StaticResource editRow}"/>
+                <TextBox Text="{Binding SelectedContact.Address}" Style="{StaticResource editRow}"/>
+                <TextBox Text="{Binding SelectedContact.PostalCode}" Style="{StaticResource editRow}"/>
+                <TextBox Text="{Binding SelectedContact.City}" Style="{StaticResource editRow}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment ="Center">
+                    <Button Command="{Binding UpdateCommand}" Style="{StaticResource editButton}" Content="&#xf044;" />
+                    <Button Command="{Binding RemoveCommand}" Style="{StaticResource deleteButton}" Content="&#xf1f8;" />
+                </StackPanel>
             </StackPanel>
         </Grid>
 

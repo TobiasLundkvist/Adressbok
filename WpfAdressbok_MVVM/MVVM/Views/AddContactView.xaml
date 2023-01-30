@@ -18,22 +18,22 @@
         <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="22" FontWeight="Medium" Margin="0 0 0 50"/>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Text="Förnamn" />
-            <TextBox Text="{Binding FirstName}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="Efternam" />
-            <TextBox Text="{Binding LastName}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="E-postadress" />
-            <TextBox Text="{Binding Email}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="Mobilnummer" />
-            <TextBox Text="{Binding PhoneNumber}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="Adress" />
-            <TextBox Text="{Binding Address}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="Postnummer" />
-            <TextBox Text="{Binding PostalCode}" Padding="5" Margin="0 5 0 20" />
-            <TextBlock Text="Stad" />
-            <TextBox Text="{Binding City}" Padding="5" Margin="0 5 0 20" />
+            <TextBlock Text="Förnamn" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding FirstName}" Style="{StaticResource addRow}"/>
+            <TextBlock Text="Efternam" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding LastName}" Style="{StaticResource addRow}" />
+            <TextBlock Text="E-postadress" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding Email}" Style="{StaticResource addRow}" />
+            <TextBlock Text="Mobilnummer" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding PhoneNumber}" Style="{StaticResource addRow}" />
+            <TextBlock Text="Adress" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding Address}" Style="{StaticResource addRow}" />
+            <TextBlock Text="Postnummer" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding PostalCode}" Style="{StaticResource addRow}" />
+            <TextBlock Text="Stad" Style="{StaticResource addText}" />
+            <TextBox Text="{Binding City}" Style="{StaticResource addRow}" />
 
-            <Button Command="{Binding AddCommand }" Content="LÄGG TILL KONTAKT" Padding="8" />
+            <Button Command="{Binding AddCommand}" Style="{StaticResource editButton}" Content="&#xf234; LÄGG TILL" Padding="8" />
         </StackPanel>
     </Grid>
 </UserControl>
