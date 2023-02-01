@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Adressbok_ConsoleApp\Adressbok_ConsoleApp.csproj" />
     <ProjectReference Include="..\WpfAdressbok_MVVM\WpfAdressbok_MVVM.csproj" />
   </ItemGroup>
 

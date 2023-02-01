@@ -26,10 +26,8 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
         }
 
 
-
         [ObservableProperty]
         private string title = "Addressboken";
-
 
         [ObservableProperty]
         private ObservableCollection<ContactModel> contacts;
@@ -52,6 +50,7 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
         [RelayCommand]
         public void Update()
         {
+            var result = MessageBox.Show("Kontaken har uppdaterats", "Confirm", MessageBoxButton.OK);
             var item = contacts.Where(x => x.FirstName == selectedContact.FirstName).FirstOrDefault();
             if(item != null)
             {

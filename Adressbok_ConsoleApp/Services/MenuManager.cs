@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace Adressbok_ConsoleApp.Services;
 
-internal class MenuManager
+public class MenuManager
 {
-    private List<Contact> contacts = new List<Contact>();
+    public List<Contact> contacts = new List<Contact>();
 
     private FileService file = new FileService();
 
