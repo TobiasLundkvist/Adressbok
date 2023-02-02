@@ -38,7 +38,7 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
         [RelayCommand]
         public void Remove()
         {
-            var result = MessageBox.Show($"Vill du radera {selectedContact.FirstName} {selectedContact.LastName}?", "Confirm", MessageBoxButton.YesNo);
+            var result = MessageBox.Show($"Vill du radera {selectedContact.FirstName} {selectedContact.LastName}?", "Addressboken", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 fileService.RemoveFromList(selectedContact);
@@ -50,7 +50,7 @@ namespace WpfAdressbok_MVVM.MVVM.ViewModels
         [RelayCommand]
         public void Update()
         {
-            var result = MessageBox.Show("Kontaken har uppdaterats", "Confirm", MessageBoxButton.OK);
+            var result = MessageBox.Show("Kontaken har uppdaterats", "Addressboken", MessageBoxButton.OK);
             var item = contacts.Where(x => x.FirstName == selectedContact.FirstName).FirstOrDefault();
             if(item != null)
             {

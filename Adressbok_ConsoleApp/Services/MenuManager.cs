@@ -113,27 +113,6 @@ public class MenuManager
         var FirstNameSearch = Console.ReadLine();
 
 
-        /*        List<Contact> FoundContact = contacts.Where(x => x.FirstName == FirstNameSearch).ToList();
-
-                foreach (var contact in FoundContact)
-                {
-                    if (FoundContact != null)
-                    {
-                        Console.WriteLine($"Förnamn: {contact.FirstName}");
-                        Console.WriteLine($"Efternamn: {contact.LastName}");
-                        Console.WriteLine($"E-postadress: {contact.Email}");
-                        Console.WriteLine($"Telefonnummer: {contact.PhoneNumber}");
-                        Console.WriteLine($"Adress: {contact.Address}, {contact.PostalCode} {contact.City} \n");
-                        Console.ReadKey();
-                    }
-                    else if (FoundContact == null)
-                    {
-                        Console.WriteLine("Kontakten finns inte");
-                        Console.ReadKey();
-                    }
-
-                }*/
-
         Contact FoundContact = contacts.Where(x => x.FirstName == FirstNameSearch).FirstOrDefault();
 
         if (FoundContact != null)
@@ -192,43 +171,6 @@ public class MenuManager
                 Console.ReadKey();
             }
         }
-
-
-
-
-/*        bool Exist = false;
-
-        for (int i = 0; i < contacts.Count; i++)
-        {
-            if (contacts[i].FirstName == FirstNameSearchAndDelete)
-            {
-                Exist = true;
-            }
-        }
-
-        if (Exist)
-        {
-            Console.WriteLine($"Vill du ta bort {FirstNameSearchAndDelete} från adressboken(Y/N)?");
-            var answer = Console.ReadLine();
-            switch (answer.ToLower())
-            {
-                case "y":
-                    contacts.RemoveAll(v => v.FirstName == FirstNameSearchAndDelete);
-                    Console.WriteLine($"{FirstNameSearchAndDelete} är borttagen");
-                    break;
-                case "n":
-                    Console.WriteLine("Kontakten kvarstår i adressboken");
-                    break;
-                default:
-                    Console.WriteLine("Något gick fel");
-                    break;
-            };
-
-        }
-        else
-        {
-            Console.WriteLine("Kontakten finns inte");
-        }*/
 
         file.Save(JsonConvert.SerializeObject(contacts));
     }
